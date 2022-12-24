@@ -20,6 +20,10 @@ io.on('connection', socket => {
     socket.on('disconnect', () => {
         io.emit('message', 'A user has left the chat');
     })
+
+    socket.on('chatMessage', (mssg) => {
+        io.emit('message', mssg);
+    });
 });
 
 server.listen(PORT, () => console.log(`Server up and running : ${PORT}`));
