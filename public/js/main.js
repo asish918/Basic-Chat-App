@@ -9,7 +9,6 @@ const { username, room } = Qs.parse(location.search, {
 socket.emit('joinRoom', { username, room });
 
 socket.on('message', message => {
-    console.log(message);
     outputMessage(message);
 
     chatMessages.scrollTop = chatMessages.scrollHeight;
